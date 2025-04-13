@@ -1,0 +1,685 @@
+*, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+:root {
+    /* Different color palette for this page */
+    --color-bg: #f4f7f6; /* Light background */
+    --color-text-primary: #333;
+    --color-text-secondary: #555;
+    --color-accent: #2575fc; /* Keep one accent consistent or change */
+    --color-card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+.site-header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky; /* Optional: make header sticky */
+    top: 0;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.site-header nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* --- Page Intro --- */
+.features-intro {
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-text-primary);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Features Grid --- */
+/* === REMOVE or COMMENT OUT THESE OLD RULES ===
+.features-grid { ... }
+.feature-card { ... }
+.feature-card:hover { ... }
+.card-icon { ... } <= Keep if used elsewhere, or modify
+.card-title { ... } <= Keep if used elsewhere, or modify
+.card-description { ... } <= Keep if used elsewhere, or modify
+============================================= */
+
+/* === ADD THESE NEW STYLES === */
+
+/* Optional: Update body/heading font if desired */
+body {
+    /* font-family: 'Poppins', sans-serif; */ /* Already set */
+    background-color: var(--color-bg, #f4f7f6); /* Ensure bg color variable exists or set directly */
+}
+h1, h2, h3 { /* Apply Orbitron to headings on this page */
+    font-family: 'Orbitron', sans-serif;
+    /* color: var(--color-text-primary, #333); */ /* Ensure text color exists */
+}
+
+/* New Project Exploration Section */
+.explore-other-projects {
+    padding: 60px 20px 80px;
+}
+
+.projects-grid {
+    display: grid;
+    /* Create 3 equal columns, dropping to 1 on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px; /* Gap between cards */
+}
+
+.project-card {
+    --card-accent: var(--color-accent, #2575fc); /* Default accent if not set inline */
+
+    display: block; /* Make the whole link a block */
+    background: linear-gradient(145deg, #ffffff, #f9f9f9); /* Light gradient */
+    color: #333; /* Dark text */
+    padding: 35px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid #eee;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden; /* Contain pseudo-elements */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.project-card::before { /* Accent line effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px; /* Width of the accent line */
+    height: 100%;
+    background-color: var(--card-accent);
+    opacity: 0.8;
+    transition: width 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    border-color: var(--card-accent);
+    color: #000; /* Slightly darker text on hover */
+}
+
+.project-card:hover::before {
+    width: 10px; /* Line expands slightly on hover */
+}
+
+.project-card .card-icon { /* Reusing class name, adjust styles */
+    font-size: 2.8rem;
+    color: var(--card-accent); /* Use the card's accent color */
+    margin-bottom: 20px;
+    line-height: 1;
+    text-align: left; /* Align icon left */
+}
+
+.project-card .card-title { /* Reusing class name */
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #222; /* Darker title */
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.project-card .card-description { /* Reusing class name */
+    font-size: 0.95rem;
+    color: #555; /* Grey description */
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.explore-arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    font-size: 1.8rem;
+    color: var(--card-accent);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-card:hover .explore-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* --- Ensure Animations are Defined & Applied --- */
+/* Make sure these exist from the original features.css */
+@keyframes slideFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+/* Use the specific keyframes for the card animation */
+.project-card.is-visible {
+    animation: slideFadeUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+
+/* Update Responsive styles if needed */
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+     .project-card {
+        padding: 25px 20px;
+     }
+     .project-card .card-title {
+         font-size: 1.4rem;
+     }
+      .project-card .card-icon {
+         font-size: 2.5rem;
+     }
+     .explore-arrow { display: none; } /* Hide arrow on small screens */
+}
+
+
+/* === START: DARK ASTRO THEME STYLES === */
+
+/* Override/Define variables for dark theme if needed */
+.dark-astro-theme {
+    --color-bg: #0c0f1a; /* Deep dark blue */
+    --color-bg-variant: #1a1d2a;
+    --color-surface: rgba(26, 29, 42, 0.8); /* Semi-transparent surface */
+    --color-text-primary: #e8e8f5; /* Light text */
+    --color-text-secondary: #a8a8c0; /* Lighter grey text */
+    --color-accent: #8a4fff; /* Example purple accent */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --transition-speed: 0.4s;
+}
+
+/* Apply dark background and general text color */
+.dark-astro-theme body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(160deg, #0b0c14, #1a1d2a, #0f111b, #2c2f4b); /* Dark gradient */
+    background-size: 400% 400%;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    position: relative; /* Needed for particle container */
+    overflow-x: hidden;
+    animation: gradientBGFeatures 25s ease infinite; /* Slower animation */
+}
+
+/* === Add near other @keyframes definitions === */
+@keyframes floatText {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      text-shadow: 0 0 15px rgba(138, 79, 255, 0.5); /* Base shadow */
+    }
+    50% {
+      transform: translateY(-4px) scale(1.01); /* Move slightly up and scale */
+      opacity: 0.95; /* Slightly fade */
+      text-shadow: 0 4px 20px rgba(138, 79, 255, 0.7); /* Enhanced shadow */
+    }
+  }
+  
+  
+  /* === Modify the existing rule for the page title === */
+  .dark-astro-theme .features-intro .page-title {
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      /* text-shadow: 0 0 15px rgba(138, 79, 255, 0.5); */ /* Base shadow applied in animation */
+      /* === ADD ANIMATION HERE === */
+      animation: floatText 10s ease-in-out infinite; /* Adjust duration/timing as needed */
+      will-change: transform, opacity, text-shadow; /* Hint for browser performance */
+      /* === Keep other existing styles like margin etc. === */
+  }
+  
+  /* === Keep other existing styles ... === */
+/* Keyframes for the background gradient */
+@keyframes gradientBGFeatures {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Particle Container Styling */
+.dark-astro-theme #particles-js {
+    position: fixed; /* Fixed position so it doesn't scroll */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Behind ALL content */
+    background: transparent; /* Ensure container itself is transparent */
+}
+
+/* Ensure main content is above particles */
+.dark-astro-theme main.features-page,
+.dark-astro-theme .site-header,
+.dark-astro-theme .site-footer-bottom {
+    position: relative;
+    z-index: 1;
+    background: transparent; /* Make sure these don't block the bg */
+}
+
+
+/* Update Header for Dark Theme */
+.dark-astro-theme .site-header {
+    background-color: rgba(12, 15, 26, 0.7); /* Dark semi-transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    border-bottom: 1px solid rgba(138, 79, 255, 0.2); /* Faint accent border */
+}
+.dark-astro-theme .site-header .logo {
+    color: #fff;
+    /* Add optional glow */
+    text-shadow: 0 0 8px rgba(138, 79, 255, 0.7);
+}
+.dark-astro-theme .site-header nav a {
+    color: var(--color-text-secondary);
+}
+.dark-astro-theme .site-header nav a:hover,
+.dark-astro-theme .site-header nav a.active {
+    color: #fff;
+    /* text-shadow: 0 0 5px var(--color-accent); */ /* Optional glow */
+}
+.dark-astro-theme .site-header nav a.active::after { /* Underline */
+    background-color: var(--color-accent);
+}
+
+
+/* Update Intro Section Text Colors */
+.dark-astro-theme .features-intro .page-title {
+    font-family: 'Orbitron', sans-serif; /* Match other sites */
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
+}
+.dark-astro-theme .features-intro .page-subtitle {
+    color: var(--color-text-secondary);
+    opacity: 0.9;
+}
+
+/* Update Project Card Styles for Dark Theme */
+.dark-astro-theme .project-card {
+    background: var(--color-surface); /* Use the dark surface color */
+    backdrop-filter: blur(5px); /* Enhance glassy feel */
+    -webkit-backdrop-filter: blur(5px);
+    color: var(--color-text-secondary);
+    border: 1px solid rgba(138, 79, 255, 0.3); /* Accent border */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    /* Keep other styles like padding, radius, position, transition */
+}
+
+.dark-astro-theme .project-card::before { /* Accent line */
+    background-color: var(--card-accent); /* Still use inline variable */
+    opacity: 1;
+}
+
+.dark-astro-theme .project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border-color: var(--card-accent);
+    background: rgba(var(--card-accent-rgb, 138, 79, 255), 0.1); /* Faint hover bg based on accent */
+}
+
+.dark-astro-theme .project-card:hover::before {
+    width: 10px;
+    box-shadow: 0 0 15px 2px var(--card-accent); /* Glow effect on line */
+}
+
+.dark-astro-theme .project-card .card-icon {
+    color: var(--card-accent);
+    text-shadow: 0 0 10px var(--card-accent); /* Icon glow */
+}
+
+.dark-astro-theme .project-card .card-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-text-primary); /* Brighter title */
+}
+
+.dark-astro-theme .project-card .card-description {
+    color: var(--color-text-secondary);
+}
+
+.dark-astro-theme .explore-arrow {
+    color: var(--card-accent);
+    text-shadow: 0 0 5px var(--card-accent);
+}
+
+/* Update Footer for Dark Theme */
+.dark-astro-theme .site-footer-bottom {
+    background-color: var(--color-bg-variant);
+    color: var(--color-text-secondary);
+    border-top: 1px solid rgba(138, 79, 255, 0.2);
+}
+.dark-astro-theme .site-footer-bottom a {
+    color: var(--color-accent); /* Use main accent */
+}
+
+
+/* Keep Existing Animations (Make sure they are defined) */
+@keyframes slideFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.dark-astro-theme .animate-on-scroll { opacity: 0; }
+.dark-astro-theme .project-card.is-visible {
+    animation: slideFadeUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.dark-astro-theme .animate-fade-in { animation: fadeIn 1s ease-out forwards; } /* Ensure fadeIn exists */
+.dark-astro-theme .animate-fade-in-delay { opacity: 0; animation: fadeIn 1s ease-out 0.3s forwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } /* Define if not present */
+
+/* === END: DARK ASTRO THEME STYLES === */
+/* === END NEW STYLES === */
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    line-height: 1; /* Ensure icon doesn't add extra space */
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- Footer --- */
+.site-footer-bottom {
+    background-color: #e9ecef;
+    color: var(--color-text-secondary);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.site-footer-bottom a {
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-left: 15px;
+}
+.site-footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* --- NEW Animations for Features Page --- */
+
+/* Simple Fade In for Intro */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+.animate-fade-in-delay {
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1s ease-out 0.3s forwards; /* Add delay */
+}
+
+
+/* Scroll Animation for Feature Cards */
+@keyframes slideFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Class added by JS */
+.feature-card.is-visible {
+    animation: slideFadeUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Initial state for scroll animation elements */
+.animate-on-scroll {
+    opacity: 0; /* Start hidden before JS adds .is-visible */
+}
+
+/* === CHATBOT STYLES === */
+#chat-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+#chat-toggle-button {
+    background-color: #007bff; /* Example blue */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px; /* Adjust icon size */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: flex; /* Center icon */
+    justify-content: center;
+    align-items: center;
+}
+
+#chat-toggle-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+#chat-window {
+    width: 320px; /* Chat window width */
+    height: 450px; /* Chat window height */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    overflow: hidden; /* Contain children */
+    display: flex;
+    flex-direction: column;
+    position: absolute; /* Position relative to container */
+    bottom: 80px; /* Position above the toggle button */
+    right: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+#chat-window:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto; /* Allow interaction when visible */
+}
+
+#chat-window.hidden {
+   display: flex; /* Keep using flex for calculations, just hide with opacity/transform */
+   visibility: hidden; /* Better for accessibility than display:none */
+}
+
+
+.chat-header {
+    background-color: #f8f9fa; /* Light grey header */
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+}
+
+#chat-close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #6c757d;
+}
+#chat-close-button:hover {
+    color: #333;
+}
+
+#chat-messages {
+    flex-grow: 1; /* Takes up available space */
+    padding: 15px;
+    overflow-y: auto; /* Enable scrolling */
+    background-color: #f1f1f1; /* Slightly different background for message area */
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 80%; /* Prevent messages taking full width */
+    word-wrap: break-word; /* Break long words */
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.message.user {
+    background-color: #007bff; /* User message color */
+    color: white;
+    align-self: flex-end; /* Align user messages to the right */
+    border-bottom-right-radius: 5px; /* Slightly different corner */
+}
+
+.message.bot {
+    background-color: #e9ecef; /* Bot message color */
+    color: #333;
+    align-self: flex-start; /* Align bot messages to the left */
+    border-bottom-left-radius: 5px; /* Slightly different corner */
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+    background-color: #ffffff;
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+#chat-input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#chat-send-button {
+    padding: 8px 15px;
+    background-color: #28a745; /* Green send button */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+#chat-send-button:hover {
+    background-color: #218838;
+
+}
+/* --- Animate On Scroll --- */
+
+/* Initial state: Elements are hidden and slightly shifted */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* Hint for browser performance */
+}
+
+/* Visible state: Elements fade in and move to original position */
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Add a slight delay for elements appearing together */
+/* You might need to adjust selectors if your cards are not direct children */
+.features-grid > .reveal-on-scroll:nth-child(1).is-visible { transition-delay: 0.1s; }
+.features-grid > .reveal-on-scroll:nth-child(2).is-visible { transition-delay: 0.2s; }
+.features-grid > .reveal-on-scroll:nth-child(3).is-visible { transition-delay: 0.3s; }
+/* Add more if you have more cards */

@@ -1,0 +1,92 @@
+body {
+    /* Fallback dark background color */
+    background-color: powderblue;
+    /* Ensure no default margin is pushing content */
+    margin: 0;
+    padding: 0;
+    /* Ensure html/body take full height if needed by content */
+    min-height: 100vh;
+}
+
+#canvas-background-container {
+    position: fixed; /* Fixed position stays in place during scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Crucial: Place it behind all other content */
+    overflow: hidden; /* Hide any potential scrollbars from the canvas itself */
+}
+
+#canvas-background-container canvas {
+    display: block; /* Prevent extra space below canvas */
+}
+
+/* Add a subtle overlay to slightly darken the background
+   and improve text contrast if needed. Adjust opacity. */
+/*
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 10, 0.3); // Adjust darkness/color
+    z-index: -1; // Should be between canvas and content if needed, but -1 works here too
+    pointer-events: none; // Allow clicks through
+}
+*/
+
+/* --- You might need to adjust these based on your original CSS --- */
+
+/* Ensure your main content area is positioned relatively
+   so it appears above the fixed background */
+.your-main-content-area, /* Use your actual class/tag */
+.your-navbar-class {    /* Use your actual class/tag */
+    position: relative;
+    z-index: 1; /* Ensure content is above the z-index: -1 canvas */
+}
+
+/* Add padding to body or main container if navbar is fixed
+   to prevent content from hiding underneath */
+
+/* Add styles for your card icons if they are not already styled */
+.card-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* Example spacing */
+    /* Add position adjustments if needed */
+}
+.card-icon-wrapper img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+/* Add styles for the colored borders on cards (like in the screenshot) */
+.quantum-card { border-left: 4px solid #29b6f6; }
+.cosmic-card { border-left: 4px solid #ffca28; }
+.satellite-card { border-left: 4px solid #69f0ae; }
+
+/* Ensure your cards have appropriate padding etc. */
+.your-card-class {
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* Make sure the white background is set (done in inline style in HTML example) */
+    /* background-color: #fff; */
+}
+
+/* Add layout for the grid if needed */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 5%; /* Example padding */
+    max-width: 1200px;
+    margin: 20px auto;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entanglement | Quantum Computing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-entanglement"> <!-- Page Specific Class -->
+
+    <header class="site-header">
+        <!-- SAME HEADER -->
+        <div class="container">
+             <a href="index.html" class="logo">Quantum<span>Leap</span></a>
+             <nav class="main-nav">
+                 <ul>
+                     <li><a href="index.html" class="internal-link">Home</a></li>
+                     <li><a href="qubits.html" class="internal-link">Qubits</a></li>
+                     <li><a href="superposition.html" class="internal-link">Superposition</a></li>
+                     <li><a href="entanglement.html" class="internal-link active">Entanglement</a></li>
+                     <li><a href="applications.html" class="internal-link">Applications</a></li>
+                 </ul>
+             </nav>
+         </div>
+    </header>
+
+    <div id="page-content">
+        <main>
+            <section class="container">
+                <h1 class="animate-on-scroll animate-fade-in-up">Entanglement: Spooky Action at a Distance</h1>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">Einstein famously called it "spooky action at a distance." Entanglement is a quantum phenomenon where two or more qubits become <span class="highlight">linked</span> in such a way that they share the same fate, regardless of the distance separating them.</p>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">Measuring the state of one entangled qubit instantly influences the state of the other(s), even if they are light-years apart. They behave as a single system.</p>
+            </section>
+
+            <section class="container entanglement-analogy-section">
+                 <h2 class="animate-on-scroll animate-fade-in-left">A Simple Analogy</h2>
+                 <p class="animate-on-scroll animate-fade-in-left" style="animation-delay: 0.1s;">Imagine you have two gloves, one left and one right, placed into separate boxes. You send one box to a friend on Mars without knowing which glove is inside. The moment your friend opens their box and sees a <span class="highlight">left</span> glove, you instantly know, without opening yours, that you have the <span class="highlight">right</span> glove.</p>
+                 <div class="entanglement-analogy animate-on-scroll animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="particle animate-on-scroll animate-fade-in-left" style="animation-delay: 0.4s;">
+                        <i class="fas fa-hand-paper"></i> <!-- Representing one state -->
+                    </div>
+                    <div class="connection-line"></div>
+                    <div class="particle animate-on-scroll animate-fade-in-right" style="animation-delay: 0.4s;">
+                         <i class="fas fa-hand-rock"></i> <!-- Representing the opposite state -->
+                    </div>
+                 </div>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.3s; margin-top: 30px; text-align: center;">Entangled particles are similar – their properties (like spin) are correlated. Measuring one determines the other's state instantaneously.</p>
+            </section>
+
+             <section class="container">
+                 <h2 class="animate-on-scroll animate-fade-in-up">Why Entanglement Matters</h2>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">Entanglement is crucial for many quantum algorithms and is essential for quantum communication and cryptography. It allows for complex correlations and information processing capabilities that are impossible classically.</p>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">Combining qubits, superposition, and entanglement unlocks the potential for solving real-world problems.</p>
+                 <a href="applications.html" class="button-primary internal-link animate-on-scroll animate-fade-in-up" style="animation-delay: 0.3s;">See Potential Applications <i class="fas fa-cogs"></i></a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <!-- SAME FOOTER -->
+         <div class="container">
+             <p>© 2023 QuantumLeap Explainer. Demystifying the future.</p>
+         </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

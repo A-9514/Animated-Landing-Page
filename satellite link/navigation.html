@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Systems // SatLink</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-navigation"> <!-- Page Specific Class -->
+
+    <header class="site-header">
+         <div class="container">
+             <a href="index.html" class="logo"><i class="fas fa-satellite-dish"></i>SatLink</a>
+             <nav class="main-nav">
+                 <ul>
+                    <li><a href="index.html" class="internal-link">Interface</a></li>
+                    <li><a href="communications.html" class="internal-link">Comms</a></li>
+                    <li><a href="earth-observation.html" class="internal-link">EO</a></li>
+                    <li><a href="navigation.html" class="internal-link active">Nav</a></li> <!-- This page is active -->
+                    <li><a href="scientific.html" class="internal-link">Science</a></li>
+                  
+                 </ul>
+             </nav>
+         </div>
+    </header>
+
+    <div id="page-content">
+        <main>
+            <section class="container">
+                <h1 class="animate-on-scroll animate-fade-in-up">// Global Navigation Satellite Systems (GNSS)_</h1>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">GNSS constellations provide autonomous geo-spatial positioning with global coverage. Receivers on the ground calculate their position by precisely timing signals sent from multiple satellites in view.</p>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">These systems are fundamental to transportation, logistics, surveying, timing synchronization, and countless location-based services.</p>
+            </section>
+
+            <section class="container content-grid-section">
+                <h2 class="animate-on-scroll animate-fade-in-left">Operational Constellations_</h2>
+                <div class="content-grid">
+
+                    <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <h3><i class="fas fa-flag-usa icon"></i> GPS (Global Positioning System)</h3>
+                        <p>The original and most widely used GNSS, operated by the United States Space Force. Consists of ~31 operational satellites in <span class="highlight">Medium Earth Orbit (MEO)</span>, ensuring at least four are visible from almost anywhere on Earth.</p>
+                        <p><strong>Status:</strong> Fully Operational Worldwide.</p>
+                    </div>
+
+                    <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">
+                         <h3><i class="fas fa-globe icon"></i> GLONASS (Global Navigation Satellite System)</h3>
+                         <p>Russia's global navigation system. Also operates in MEO with full global coverage provided by its constellation of satellites. Many modern receivers can use both GPS and GLONASS signals for improved accuracy and reliability.</p>
+                         <p><strong>Status:</strong> Fully Operational Worldwide.</p>
+                     </div>
+
+                     <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.3s;">
+                          <h3><i class="fas fa-dharmachakra icon" style="color: #ff9933;"></i> BeiDou Navigation Satellite System (BDS)</h3>
+                          <p>China's GNSS. Offers global services using a combination of satellites in <span class="highlight">GEO, IGSO (Inclined Geosynchronous Orbit), and MEO</span>. Provides regional augmentation services for Asia-Pacific.</p>
+                          <p><strong>Status:</strong> Fully Operational Worldwide.</p>
+                      </div>
+
+                       <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.4s;">
+                           <h3><i class="fas fa-atom icon" style="color: #003399;"></i> Galileo</h3>
+                           <p>The European Union's global navigation system, operated by the European Space Agency (ESA). Provides high-accuracy positioning and is designed for civilian use. Operates a constellation in <span class="highlight">MEO</span>.</p>
+                           <p><strong>Status:</strong> Fully Operational Worldwide.</p>
+                       </div>
+
+                       <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.5s;">
+                           <h3><i class="fas fa-map-pin icon"></i> Regional Systems</h3>
+                           <p>Systems providing coverage over specific regions, often complementing global systems. Examples include India's <span class="highlight">NavIC</span> and Japan's <span class="highlight">QZSS</span> (which primarily augments GPS).</p>
+                           <p><strong>Status:</strong> Operational Regionally.</p>
+                       </div>
+                </div>
+            </section>
+
+             <section class="container cta-next">
+                 <h2 class="animate-on-scroll animate-fade-in-up">Pushing Scientific Frontiers_</h2>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">Satellites also serve as platforms for pure scientific research, looking both outward and inward.</p>
+                 <a href="scientific.html" class="button-primary internal-link animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">Access Science Platforms <i class="fas fa-flask"></i></a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+         <div class="container">
+             <p>© 2023 SatLink Interface // Orbital Data Systems // All rights reserved.</p>
+         </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <body class="page-index has-scanlines"> <!-- Added has-scanlines -->
+</body>
+</html>

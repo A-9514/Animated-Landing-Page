@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superposition | Quantum Computing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-superposition"> <!-- Page Specific Class -->
+
+    <header class="site-header">
+        <!-- SAME HEADER -->
+        <div class="container">
+             <a href="index.html" class="logo">Quantum<span>Leap</span></a>
+             <nav class="main-nav">
+                 <ul>
+                     <li><a href="index.html" class="internal-link">Home</a></li>
+                     <li><a href="qubits.html" class="internal-link">Qubits</a></li>
+                     <li><a href="superposition.html" class="internal-link active">Superposition</a></li>
+                     <li><a href="entanglement.html" class="internal-link">Entanglement</a></li>
+                     <li><a href="applications.html" class="internal-link">Applications</a></li>
+                 </ul>
+             </nav>
+         </div>
+    </header>
+
+    <div id="page-content">
+        <main>
+            <section class="container">
+                <h1 class="animate-on-scroll animate-fade-in-up">Superposition: Being Everywhere at Once (Sort Of)</h1>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">One of the most counter-intuitive quantum phenomena. Superposition means a quantum system (like a qubit) can exist in <span class="highlight">multiple states simultaneously</span> until it's measured.</p>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">Think of it like a spinning coin. While it's spinning, it's neither heads nor tails – it's in a superposition of both possibilities. Only when it lands (is measured) does it settle into a definite state (heads or tails).</p>
+            </section>
+
+            <section class="container concept-viz-section">
+                 <h2 class="animate-on-scroll animate-fade-in-left">Visualizing the Possibilities</h2>
+                 <div class="concept-viz animate-on-scroll animate-scale-in" style="animation-delay: 0.1s;">
+                    <i class="fas fa-circle-notch icon"></i> <!-- Spinning icon (use 'fa-spin' class in CSS if needed, or the keyframe) -->
+                    <h3>Before Measurement</h3>
+                    <p>The qubit exists as a combination of probabilities for being 0 and 1. It holds information about <span class="highlight">both states</span>.</p>
+                    <p style="font-size: 2rem; margin-top: 10px; color: var(--color-accent-2);">{ α|0⟩ + β|1⟩ }</p>
+                 </div>
+                 <div class="animate-on-scroll animate-fade-in-right" style="animation-delay: 0.3s; margin-top: 40px; text-align:center;">
+                     <i class="fas fa-eye icon" style="font-size: 1.5rem; color: var(--color-accent-1);"></i>
+                     <p style="margin-bottom: 0;"><strong>Measurement Causes Collapse:</strong></p>
+                     <p>Observing the qubit forces it into a single, definite classical state (either 0 or 1).</p>
+                     <p style="font-size: 1.8rem; margin-top: 5px; color: var(--color-text-primary);">Either |0⟩ OR |1⟩</p>
+                 </div>
+            </section>
+
+             <section class="container">
+                 <h2 class="animate-on-scroll animate-fade-in-up">The Power of Parallelism</h2>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">Because a register of N qubits can exist in a superposition of all 2<sup>N</sup> possible classical states, a quantum computer can, in a sense, perform calculations on all these states <span class="highlight">simultaneously</span>. This is the source of quantum computing's potential power for specific tasks.</p>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">But superposition isn't the only trick. Another bizarre phenomenon links qubits together...</p>
+                 <a href="entanglement.html" class="button-primary internal-link animate-on-scroll animate-fade-in-up" style="animation-delay: 0.3s;">Explore Entanglement <i class="fas fa-link"></i></a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <!-- SAME FOOTER -->
+         <div class="container">
+             <p>© 2023 QuantumLeap Explainer. Demystifying the future.</p>
+         </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

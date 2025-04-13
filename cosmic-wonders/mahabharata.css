@@ -1,0 +1,165 @@
+
+/* === START: MAHABHARATA & COSMOS PAGE STYLES === */
+
+/* Use appropriate fonts if not globally set */
+.page-mahabharata-cosmos h1,
+.page-mahabharata-cosmos h2 {
+    font-family: 'Cinzel Decorative', cursive; /* Epic heading font */
+}
+.page-mahabharata-cosmos h3,
+.page-mahabharata-cosmos h4,
+.page-mahabharata-cosmos p,
+.page-mahabharata-cosmos figcaption {
+    font-family: 'Source Serif Pro', serif; /* Serif for readability */
+}
+
+/* Intro section adjustments */
+.page-mahabharata-cosmos .page-intro h1 {
+    margin-bottom: 0.5em;
+    color: var(--color-accent-1); /* Gold title */
+    text-shadow: 0 0 15px var(--color-accent-1);
+}
+.page-mahabharata-cosmos .page-intro p {
+    text-align: center;
+    max-width: 80ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+
+/* Content Section Layouts (Text/Image Alternating) */
+.content-section {
+    display: flex;
+    flex-wrap: wrap; /* Wrap on smaller screens */
+    gap: 40px; /* Space between text and image */
+    align-items: center; /* Vertically align items */
+    margin-bottom: 60px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(228, 175, 58, 0.15); /* Faint gold divider */
+}
+
+.content-section h2 {
+    width: 100%; /* Heading spans full width */
+    text-align: left;
+    margin-bottom: 25px;
+    color: var(--color-accent-1); /* Gold section titles */
+}
+/* Style for status lights if used */
+.content-section h2 .status-light {
+     width: 8px; height: 8px; opacity: 0.7; margin-left: 15px;
+}
+
+.content-text {
+    flex: 1; /* Text takes available space */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+figure.content-image-left,
+figure.content-image-right {
+    flex: 0 0 45%; /* Image takes up roughly 45% width */
+    min-width: 300px;
+    margin: 0; /* Reset figure margin */
+}
+figure.content-image-left img,
+figure.content-image-right img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded image corners */
+    border: 2px solid var(--color-primary); /* Theme border */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+figure.content-image-left:hover img,
+figure.content-image-right:hover img {
+     transform: scale(1.03);
+     box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+}
+figure figcaption {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 12px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+
+/* Alternate Layout Order */
+.content-section.alt-layout figure {
+    order: -1; /* Move image before text visually */
+}
+.content-section.alt-layout h2 {
+    text-align: right; /* Align heading right */
+}
+.content-section.alt-layout .content-text p {
+   /* text-align: right; */ /* Optional: align text right too */
+}
+
+
+/* Final CTA Section */
+.cta-next {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(228, 175, 58, 0.15);
+}
+.cta-next h2 {
+    border-bottom: none; /* Remove border from last heading */
+    color: #fff;
+}
+
+
+/* Responsive adjustments for layout */
+@media (max-width: 768px) {
+    .content-section {
+        flex-direction: column; /* Stack text and image */
+        gap: 30px;
+    }
+    figure.content-image-left,
+    figure.content-image-right {
+        flex-basis: auto; /* Reset flex basis */
+        width: 90%; /* Adjust image width */
+        max-width: 450px; /* Max image width */
+        margin: 0 auto; /* Center image */
+        order: 0 !important; /* Reset order override */
+    }
+     .content-section h2,
+     .content-section.alt-layout h2 {
+        text-align: center; /* Center headings */
+     }
+     .content-text {
+         text-align: center; /* Center text */
+     }
+     .content-text p {
+          margin-left: auto;
+          margin-right: auto;
+     }
+}
+
+/* Optional: Scanline Style include if needed */
+/* Ensure .has-scanlines::after and @keyframes scanlineMove exist */
+.has-scanlines::after {
+    content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient( rgba(12, 15, 26, 0) 50%, rgba(0, 0, 0, 0.1) 50% );
+    background-size: 100% 4px; opacity: 0.15; /* Make scanlines very subtle */
+    z-index: 1001; pointer-events: none;
+    animation: scanlineMove 40s linear infinite;
+}
+@keyframes scanlineMove { 0% { background-position: 0 0; } 100% { background-position: 0 -200px; } }
+
+/* Optional: Status Light Style include if needed */
+/* Ensure .status-light, color variants, and @keyframes blink exist */
+.status-light { /* Example basic style */
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-left: 10px; vertical-align: middle;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.5);
+    animation: blink 1.5s infinite ease-in-out;
+}
+.status-light.green { background-color: #39ff14; box-shadow: 0 0 8px 2px rgba(57, 255, 20, 0.6); }
+.status-light.cyan { background-color: #00f0ff; box-shadow: 0 0 8px 2px rgba(0, 240, 255, 0.6); }
+.status-light.orange { background-color: #ff5733; box-shadow: 0 0 8px 2px rgba(255, 87, 51, 0.6); animation-duration: 0.8s; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+
+/* === END: MAHABHARATA & COSMOS PAGE STYLES === */

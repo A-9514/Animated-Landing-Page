@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Features | Discover What's New</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet"> <!-- Added Orbitron -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!-- Link to the features.css file -->
+    <link rel="stylesheet" href="features.css">
+    <link rel="stylesheet" href="background_style.css">
+    <!-- Font Awesome for icons -->
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+    <body>
+    <header class="site-header">
+        
+        <div class="container">
+            <a href="index.html" class="logo">Venture Worlds:exploring different created digital worlds.</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="features.html" class="active">Features</a>
+                
+                
+                <!-- Maybe add the other project links here too? Optional -->
+            </nav>
+        </div>
+    </header>
+
+    <main class="features-page">
+        <section class="features-intro container">
+            <h1 class="page-title animate-fade-in">Explore Our Universe</h1> <!-- Changed Title -->
+            <p class="page-subtitle animate-fade-in-delay">Beyond Aurora, discover other interactive explorations.</p> <!-- Changed Subtitle -->
+        </section>
+
+
+        
+        <!-- === START: NEW PROJECT EXPLORATION SECTION === -->
+        <section class="explore-other-projects container">
+            <div class="projects-grid">
+
+                <!-- Quantum Leap Card -->
+                <a href="quantum-site/index.html" class="project-card animate-on-scroll" style="--card-accent: #53d8fb;"> <!-- Cyan Accent -->
+                    <div class="card-icon"><i class="fas fa-atom"></i></div>
+                    <h3 class="card-title">Quantum Leap</h3>
+                    <p class="card-description">Dive into the strange world of quantum computing principles.</p>
+                    <span class="explore-arrow">→</span>
+                </a>
+
+                <!-- Cosmic Wonders Card -->
+                <a href="cosmic-wonders/index.html" class="project-card animate-on-scroll" style="--card-accent: #ffcc66; animation-delay: 0.15s;"> <!-- Gold Accent -->
+                    <div class="card-icon"><i class="fas fa-star"></i></div>
+                    <h3 class="card-title">Cosmic Wonders</h3>
+                    <p class="card-description">Journey through star lifecycles, galaxies, and deep space mysteries.</p>
+                     <span class="explore-arrow">→</span>
+                </a>
+
+                <!-- Satellite Link Card -->
+                <a href="satellite link/index.html" class="project-card animate-on-scroll" style="--card-accent: #39ff14; animation-delay: 0.3s;"> <!-- Neon Green Accent -->
+                    <div class="card-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <h3 class="card-title">Satellite Link</h3>
+                    <p class="card-description">Simulate connecting to orbital networks for comms, EO, and navigation.</p>
+                     <span class="explore-arrow">→</span>
+                </a>
+
+            </div>
+        </section>
+        <!-- === END: NEW PROJECT EXPLORATION SECTION === -->
+
+        <!-- DELETE THE OLD <section class="features-grid container">...</section> -->
+
+    </main>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+
+        </div>
+    </footer>
+
+    <!-- Link to the features.js file -->
+    <script src="features.js"></script>
+    <script type="module" src="background_script.js"></script>
+    <script type="module" src="chatbot_script.js"></script>
+
+        <!-- === CHATBOT WIDGET START === -->
+        <div id="chat-widget-container">
+            <button id="chat-toggle-button" aria-label="Toggle Chat">
+                <!-- Simple chat icon (emoji or text) -->
+                💬
+                <!-- Or use an SVG/Font Awesome icon if you prefer -->
+                <!-- <i class="fas fa-comment-dots"></i> -->
+            </button>
+    
+            <div id="chat-window" class="hidden">
+                <div class="chat-header">
+                    <span>Chat Assistant</span>
+                    <button id="chat-close-button" aria-label="Close Chat">×</button>
+                </div>
+                <div id="chat-messages">
+                    <!-- Chat messages will appear here -->
+                    <div class="message bot">Hello! Ask me about Quantum, Cosmic, or Satellites.</div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Type your message...">
+                    <button id="chat-send-button">Send</button>
+                </div>
+            </div>
+        </div>
+        <!-- === CHATBOT WIDGET END === -->
+    
+        <!-- Your other scripts (like Three.js, background_script.js) should be above this -->
+        <script src="chatbot_script.js"></script> <!-- New script for the chatbot -->
+        <script type="module" src="background_script.js"></script>
+    
+    </body>
+    </html>
+
+</body>
+</html>

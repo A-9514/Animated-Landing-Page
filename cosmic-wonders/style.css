@@ -1,0 +1,661 @@
+/* --- Global Styles & Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    /* New Cosmic Color Palette */
+    --color-bg: #0c0c1d; /* Very dark space blue/purple */
+    --color-bg-variant: #11112a;
+    --color-surface: #1a1a3a; /* Slightly lighter dark shade */
+    --color-primary: #2a2a5e; /* Muted deep blue */
+    --color-accent-1: #ffcc66; /* Warm Gold/Star glow */
+    --color-accent-2: #b39ddb; /* Soft Cosmic Purple */
+    --color-text-primary: #f0f0f0; /* Off-white */
+    --color-text-secondary: #b0b0d0; /* Light grey/blue */
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Orbitron', sans-serif; /* Keeping the techy font */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --transition-speed: 0.4s;
+}
+
+*, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--color-accent-2) var(--color-primary); /* Firefox */
+}
+
+/* Chrome/Edge/Safari */
+html::-webkit-scrollbar { width: 8px; }
+html::-webkit-scrollbar-track { background: var(--color-primary); }
+html::-webkit-scrollbar-thumb { background-color: var(--color-accent-2); border-radius: 20px; border: 2px solid var(--color-primary); }
+
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+    letter-spacing: 1px;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 3.8rem); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+h2 { font-size: clamp(2rem, 5vw, 2.8rem); }
+h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); }
+
+p {
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5em;
+    max-width: 70ch;
+}
+
+a {
+    color: var(--color-accent-1); /* Links use the gold color */
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--color-accent-2); /* Hover uses the purple */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px; /* Slightly narrower for content focus */
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+section {
+    padding: 60px 0;
+    /* Optional subtle divider */
+    /* border-bottom: 1px solid rgba(179, 157, 219, 0.1); */
+}
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* --- Reusable Components --- */
+.button-primary {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--color-accent-2), var(--color-accent-1)); /* Purple to Gold */
+    color: #111; /* Dark text on light gradient */
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: var(--font-heading); /* Use heading font for button */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: #000;
+}
+
+.highlight {
+    color: var(--color-accent-1); /* Gold highlight */
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(255, 204, 102, 0.5); /* Subtle glow */
+}
+
+.icon { /* Used for decorative icons */
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    background: -webkit-linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Header / Navigation --- */
+.site-header {
+    background-color: rgba(12, 12, 29, 0.8); /* Darker, less blue */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px var(--shadow-color);
+}
+
+.site-header .container { /* Keep header structure */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.logo span { /* Highlight part of the logo */
+    color: var(--color-accent-1); /* Gold span */
+    text-shadow: 0 0 8px var(--color-accent-1);
+}
+
+.main-nav ul { /* Keep nav structure */
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    padding: 10px 5px;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+.main-nav a::after { /* Underline effect */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-accent-1); /* Gold underline */
+    transition: width var(--transition-speed) ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #fff;
+    text-shadow: 0 0 5px var(--color-accent-2); /* Subtle purple glow on active/hover */
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--color-bg-variant);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-top: 40px;
+    border-top: 1px solid rgba(179, 157, 219, 0.1);
+}
+
+.site-footer a {
+    color: var(--color-accent-1);
+}
+
+/* --- PAGE TRANSITION STYLES --- (Keep the same mechanism) */
+#page-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+}
+
+body.is-transitioning #page-content {
+    opacity: 0;
+    transform: translateY(30px); /* Slightly larger move */
+}
+
+/* --- ANIMATION DEFINITIONS (Scroll-triggered - Keep the same keyframes) --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); } /* Slightly more travel */
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.85); } /* Start slightly larger */
+    to { opacity: 1; transform: scale(1); }
+}
+/* New subtle pulse/glow for specific elements */
+@keyframes subtleGlow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+@keyframes starTwinkle {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+
+/* Base state for animated elements (Keep the same mechanism) */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+.animate-on-scroll.is-visible { opacity: 1; }
+
+/* Apply animations (Keep the same mechanism) */
+.animate-fade-in-up.is-visible { animation: fadeInUp 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+.animate-fade-in-left.is-visible { animation: fadeInLeft 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+.animate-fade-in-right.is-visible { animation: fadeInRight 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+.animate-scale-in.is-visible { animation: scaleIn 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+
+
+/* --- PAGE-SPECIFIC STYLES --- */
+
+/* Index Page Hero */
+.page-index .hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* Add a space background image */
+    background: linear-gradient(rgba(12, 12, 29, 0.7), rgba(12, 12, 29, 0.95)), url('img/hero-background.jpg') no-repeat center center/cover;
+    /* Make sure you have an image named hero-background.jpg in an img folder, or remove/change this line */
+    background-color: var(--color-bg); /* Fallback */
+    padding-bottom: 40px; /* Add some padding below content */
+}
+.page-index .hero h1 {
+    color: #fff; /* Brighter white for hero headline */
+    margin-bottom: 0.4em;
+}
+.page-index .hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5em;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+/* Star Lifecycle Page */
+.page-lifecycle .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 0;
+}
+.page-lifecycle .timeline::after { /* The central line */
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(var(--color-accent-2), var(--color-accent-1));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    opacity: 0.5;
+    z-index: 0;
+}
+.page-lifecycle .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    z-index: 1;
+}
+.page-lifecycle .timeline-item::after { /* The circles on the line */
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--color-surface);
+    border: 4px solid var(--color-accent-1);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+    animation: starTwinkle 3s infinite ease-in-out;
+}
+.page-lifecycle .timeline-item.left { left: 0; }
+.page-lifecycle .timeline-item.right { left: 50%; }
+.page-lifecycle .timeline-item.left::before { /* Connector lines - hidden for now */ display: none; }
+.page-lifecycle .timeline-item.right::before { /* Connector lines - hidden for now */ display: none; }
+.page-lifecycle .timeline-item.right::after { left: -10px; }
+.page-lifecycle .timeline-content {
+    padding: 20px 30px;
+    background-color: var(--color-surface);
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    border-left: 3px solid var(--color-accent-2);
+}
+.page-lifecycle .timeline-content h3 { color: var(--color-accent-1); margin-bottom: 10px; }
+
+/* Star Types Page */
+.page-types .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    margin-top: 30px;
+}
+.page-types .star-type-card {
+    background-color: var(--color-surface);
+    padding: 35px 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid rgba(179, 157, 219, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+.page-types .star-type-card::before { /* Subtle glow effect on hover */
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255, 204, 102, 0.15) 0%, rgba(255, 204, 102, 0) 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+    z-index: 0;
+    opacity: 0;
+}
+.page-types .star-type-card:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+.page-types .star-type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+.page-types .star-type-card .icon { font-size: 3rem; margin-bottom: 15px; position: relative; z-index: 1; }
+.page-types .star-type-card h3 { color: var(--color-accent-1); margin-bottom: 10px; position: relative; z-index: 1; }
+.page-types .star-type-card p { font-size: 0.9rem; position: relative; z-index: 1; }
+
+/* Constellations Page */
+.page-constellations .constellation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.page-constellations .constellation-item {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    padding: 25px;
+    border-left: 4px solid var(--color-accent-2);
+}
+.page-constellations .constellation-item h3 { color: var(--color-accent-1); }
+/* Add styles for constellation images if you include them */
+
+
+/* Deep Space Page */
+.page-deep-space .deep-space-item {
+    background-color: var(--color-surface);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+.page-deep-space .deep-space-item h3 {
+    color: var(--color-accent-2); /* Purple for deep space titles */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.page-deep-space .deep-space-item .icon {
+    font-size: 2rem; margin-bottom: 0;
+}
+
+
+/* --- Responsive Design --- (Keep similar breakpoints) */
+@media (max-width: 768px) {
+    h1 { font-size: 2.3rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.3rem; }
+
+    .site-header .container { flex-direction: column; gap: 15px; }
+    .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center;}
+    .main-nav a { padding: 5px; }
+
+    /* Timeline adjustments */
+    .page-lifecycle .timeline::after { left: 15px; }
+    .page-lifecycle .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+    .page-lifecycle .timeline-item.left, .page-lifecycle .timeline-item.right { left: 0%; }
+    .page-lifecycle .timeline-item.left::after, .page-lifecycle .timeline-item.right::after { left: -10px; /* Position circle correctly */ }
+}
+
+
+/* === START: MAHABHARATA & COSMOS PAGE STYLES === */
+
+/* Use appropriate fonts if not globally set */
+.page-mahabharata-cosmos h1,
+.page-mahabharata-cosmos h2 {
+    font-family: 'Cinzel Decorative', cursive; /* Epic heading font */
+}
+.page-mahabharata-cosmos h3,
+.page-mahabharata-cosmos h4,
+.page-mahabharata-cosmos p,
+.page-mahabharata-cosmos figcaption {
+    font-family: 'Source Serif Pro', serif; /* Serif for readability */
+}
+
+/* Intro section adjustments */
+.page-mahabharata-cosmos .page-intro h1 {
+    margin-bottom: 0.5em;
+    color: var(--color-accent-1); /* Gold title */
+    text-shadow: 0 0 15px var(--color-accent-1);
+}
+.page-mahabharata-cosmos .page-intro p {
+    text-align: center;
+    max-width: 80ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+
+/* Content Section Layouts (Text/Image Alternating) */
+.content-section {
+    display: flex;
+    flex-wrap: wrap; /* Wrap on smaller screens */
+    gap: 40px; /* Space between text and image */
+    align-items: center; /* Vertically align items */
+    margin-bottom: 60px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(228, 175, 58, 0.15); /* Faint gold divider */
+}
+
+.content-section h2 {
+    width: 100%; /* Heading spans full width */
+    text-align: left;
+    margin-bottom: 25px;
+    color: var(--color-accent-1); /* Gold section titles */
+}
+/* Style for status lights if used */
+.content-section h2 .status-light {
+     width: 8px; height: 8px; opacity: 0.7; margin-left: 15px;
+}
+
+.content-text {
+    flex: 1; /* Text takes available space */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+figure.content-image-left,
+figure.content-image-right {
+    flex: 0 0 45%; /* Image takes up roughly 45% width */
+    min-width: 300px;
+    margin: 0; /* Reset figure margin */
+}
+figure.content-image-left img,
+figure.content-image-right img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded image corners */
+    border: 2px solid var(--color-primary); /* Theme border */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+figure.content-image-left:hover img,
+figure.content-image-right:hover img {
+     transform: scale(1.03);
+     box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+}
+figure figcaption {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 12px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+
+/* Alternate Layout Order */
+.content-section.alt-layout figure {
+    order: -1; /* Move image before text visually */
+}
+.content-section.alt-layout h2 {
+    text-align: right; /* Align heading right */
+}
+.content-section.alt-layout .content-text p {
+   /* text-align: right; */ /* Optional: align text right too */
+}
+
+
+/* Final CTA Section */
+.cta-next {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(228, 175, 58, 0.15);
+}
+.cta-next h2 {
+    border-bottom: none; /* Remove border from last heading */
+    color: #fff;
+}
+
+
+/* Responsive adjustments for layout */
+@media (max-width: 768px) {
+    .content-section {
+        flex-direction: column; /* Stack text and image */
+        gap: 30px;
+    }
+    figure.content-image-left,
+    figure.content-image-right {
+        flex-basis: auto; /* Reset flex basis */
+        width: 90%; /* Adjust image width */
+        max-width: 450px; /* Max image width */
+        margin: 0 auto; /* Center image */
+        order: 0 !important; /* Reset order override */
+    }
+     .content-section h2,
+     .content-section.alt-layout h2 {
+        text-align: center; /* Center headings */
+     }
+     .content-text {
+         text-align: center; /* Center text */
+     }
+     .content-text p {
+          margin-left: auto;
+          margin-right: auto;
+     }
+}
+
+/* Optional: Scanline Style include if needed */
+/* Ensure .has-scanlines::after and @keyframes scanlineMove exist */
+.has-scanlines::after {
+    content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient( rgba(12, 15, 26, 0) 50%, rgba(0, 0, 0, 0.1) 50% );
+    background-size: 100% 4px; opacity: 0.15; /* Make scanlines very subtle */
+    z-index: 1001; pointer-events: none;
+    animation: scanlineMove 40s linear infinite;
+}
+@keyframes scanlineMove { 0% { background-position: 0 0; } 100% { background-position: 0 -200px; } }
+
+/* Optional: Status Light Style include if needed */
+/* Ensure .status-light, color variants, and @keyframes blink exist */
+.status-light { /* Example basic style */
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-left: 10px; vertical-align: middle;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.5);
+    animation: blink 1.5s infinite ease-in-out;
+}
+.status-light.green { background-color: #39ff14; box-shadow: 0 0 8px 2px rgba(57, 255, 20, 0.6); }
+.status-light.cyan { background-color: #00f0ff; box-shadow: 0 0 8px 2px rgba(0, 240, 255, 0.6); }
+.status-light.orange { background-color: #ff5733; box-shadow: 0 0 8px 2px rgba(255, 87, 51, 0.6); animation-duration: 0.8s; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+
+/* === END: MAHABHARATA & COSMOS PAGE STYLES === */
+
+.hub-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    color: rgba(224, 240, 248, 0.7); /* Lighter footer text */
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    pointer-events: none;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    .hub-footer p {
+    margin: 0;
+    pointer-events: auto;
+    }
+    .audio-controls {
+    pointer-events: auto;
+    }
+    .audio-controls button {
+    background: rgba(20, 30, 40, 0.6); /* Darker button /
+    border: 1px solid rgba(0, 200, 255, 0.4); / Cyan border /
+    color: #e8f0f8;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+    }
+    .audio-controls button:hover {
+    background: rgba(0, 200, 255, 0.3);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+    }
+    .audio-controls button i { / Icon margin */
+    margin-right: 6px;
+    }
+    /* Hide default audio elements */
+    audio {
+    display: none;
+    }
+    /* Simple Fade-out effect for body */
+    body.is-navigating {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    }

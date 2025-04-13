@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Observation // SatLink</title>
+    <link rel="stylesheet" href="style.css"> <!-- Links to the SatLink style.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-earth-observation"> <!-- Page Specific Class -->
+
+    <header class="site-header">
+         <div class="container">
+             <a href="index.html" class="logo"><i class="fas fa-satellite-dish"></i>SatLink</a>
+             <nav class="main-nav">
+                 <ul>
+                    <li><a href="index.html" class="internal-link">Interface</a></li>
+                    <li><a href="communications.html" class="internal-link">Comms</a></li>
+                    <li><a href="earth-observation.html" class="internal-link active">EO</a></li> <!-- This page is active -->
+                    <li><a href="navigation.html" class="internal-link">Nav</a></li>
+                    <li><a href="scientific.html" class="internal-link">Science</a></li>
+                 </ul>
+             </nav>
+         </div>
+    </header>
+
+    <div id="page-content">
+        <main>
+            <section class="container">
+                <h1 class="animate-on-scroll animate-fade-in-up">// Earth Observation Sensors_ ACTIVE</h1>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">Earth Observation (EO) satellites are humanity's eyes in the sky, continuously monitoring our planet's land, oceans, atmosphere, and ice caps. They provide critical data for weather forecasting, climate change studies, disaster management, agriculture, and resource monitoring.</p>
+            </section>
+
+            <section class="container content-grid-section">
+                <h2 class="animate-on-scroll animate-fade-in-left">Primary Sensor Categories_</h2>
+                <div class="content-grid">
+
+                    <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">
+                        <h3><i class="fas fa-cloud-sun-rain icon"></i> Meteorological Satellites</h3>
+                        <p>Monitor weather patterns, cloud cover, temperature, and atmospheric conditions. Operate in both <span class="highlight">GEO</span> (like GOES, Meteosat for continuous regional views) and <span class="highlight">Polar Orbits</span> (like NOAA, MetOp for global coverage).</p>
+                        <p><strong>Data Stream:</strong> Weather imaging, atmospheric sounding.</p>
+                    </div>
+
+                    <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">
+                         <h3><i class="fas fa-image icon"></i> Optical Imaging Satellites</h3>
+                         <p>Capture detailed images of the Earth's surface using visible and near-infrared light, similar to a digital camera. Resolution varies widely. Examples: <span class="highlight">Landsat series, Sentinel-2, Planet Labs constellation, WorldView.</span></p>
+                         <p><strong>Data Stream:</strong> High-resolution imagery, land cover mapping.</p>
+                     </div>
+
+                     <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.3s;">
+                          <h3><i class="fas fa-wifi icon" style="transform: rotate(45deg);"></i> Radar Satellites (SAR)</h3>
+                          <p>Use radar pulses to image the surface, capable of seeing through clouds and darkness. Excellent for monitoring surface deformation, ice movement, and ship detection. Examples: <span class="highlight">Sentinel-1, RADARSAT, TerraSAR-X.</span></p>
+                          <p><strong>Data Stream:</strong> All-weather surface imaging, interferometry.</p>
+                      </div>
+
+                       <div class="info-card animate-on-scroll animate-fade-in-up" style="animation-delay: 0.4s;">
+                           <h3><i class="fas fa-thermometer-half icon"></i> Environmental Monitoring</h3>
+                           <p>Carry specialized instruments to measure ocean color/temperature, atmospheric gases (CO2, methane), vegetation health, sea levels, and ice sheet thickness. Examples: <span class="highlight">Sentinel-3, ICESat-2, MODIS (on Terra/Aqua).</span></p>
+                           <p><strong>Data Stream:</strong> Climate variables, ecosystem health data.</p>
+                       </div>
+                </div>
+            </section>
+
+             <section class="container cta-next">
+                 <h2 class="animate-on-scroll animate-fade-in-up">Navigating the Globe_</h2>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">Other constellations provide precise positioning data, guiding us anywhere on Earth.</p>
+                 <a href="navigation.html" class="button-primary internal-link animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">Access Navigation Grid <i class="fas fa-location-arrow"></i></a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+         <div class="container">
+             <p>© 2023 SatLink Interface // Orbital Data Systems // All rights reserved.</p>
+         </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <body class="page-index has-scanlines"> <!-- Added has-scanlines -->
+</body>
+</html>

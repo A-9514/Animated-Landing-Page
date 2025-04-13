@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qubits | Quantum Computing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-qubits"> <!-- Page Specific Class -->
+
+    <header class="site-header">
+        <!-- SAME HEADER as index.html -->
+        <div class="container">
+             <a href="index.html" class="logo">Quantum<span>Leap</span></a>
+             <nav class="main-nav">
+                 <ul>
+                     <li><a href="index.html" class="internal-link">Home</a></li>
+                     <li><a href="qubits.html" class="internal-link active">Qubits</a></li>
+                     <li><a href="superposition.html" class="internal-link">Superposition</a></li>
+                     <li><a href="entanglement.html" class="internal-link">Entanglement</a></li>
+                     <li><a href="applications.html" class="internal-link">Applications</a></li>
+                 </ul>
+             </nav>
+         </div>
+    </header>
+
+    <div id="page-content">
+        <main>
+            <section class="container">
+                <h1 class="animate-on-scroll animate-fade-in-up">The Quantum Bit (Qubit)</h1>
+                <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">The fundamental unit of quantum information. Unlike a classical bit, which must be either 0 or 1, a qubit can be 0, 1, or a <span class="highlight">superposition</span> of both states simultaneously.</p>
+            </section>
+
+            <section class="container comparison-section">
+                <div class="bit-diagram animate-on-scroll animate-fade-in-left">
+                    <i class="fas fa-toggle-off icon"></i> <!-- Or fa-toggle-on -->
+                    <h3>Classical Bit</h3>
+                    <p>Represents either <strong>0</strong> OR <strong>1</strong>.</p>
+                    <p>Like a light switch: definitively ON or OFF.</p>
+                </div>
+                 <div class="qubit-diagram animate-on-scroll animate-fade-in-right" style="animation-delay: 0.2s;">
+                     <i class="fas fa-atom icon"></i> <!-- Or other abstract icon -->
+                     <h3>Quantum Bit (Qubit)</h3>
+                     <p>Can be <strong>0</strong>, <strong>1</strong>, or <span class="highlight">both</span> at the same time (Superposition).</p>
+                     <p>Think of it more like a dimmer switch or a spinning coin - it has possibilities until measured.</p>
+                 </div>
+            </section>
+
+             <section class="container">
+                 <h2 class="animate-on-scroll animate-fade-in-up">Why Does This Matter?</h2>
+                 <p class="animate-on-scroll animate-fade-in-up" style="animation-delay: 0.1s;">This ability to hold multiple values allows quantum computers to explore a vast number of possibilities simultaneously. For certain problems, this leads to exponential speedups compared to classical algorithms.</p>
+                 <a href="superposition.html" class="button-primary internal-link animate-on-scroll animate-fade-in-up" style="animation-delay: 0.2s;">Learn about Superposition <i class="fas fa-arrow-right"></i></a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <!-- SAME FOOTER as index.html -->
+         <div class="container">
+             <p>© 2023 QuantumLeap Explainer. Demystifying the future.</p>
+         </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
