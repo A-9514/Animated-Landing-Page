@@ -6,7 +6,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const chatSendButton = document.getElementById('chat-send-button');
 
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM Content Loaded. Chatbot script starting."); // <-- ADD
+    
+        const chatToggleButton = document.getElementById('chat-toggle-button');
+        const chatWindow = document.getElementById('chat-window');
+        const chatCloseButton = document.getElementById('chat-close-button');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendButton = document.getElementById('chat-send-button');
+    
+        console.log("Chat Toggle Button Element:", chatToggleButton); // <-- ADD
+        console.log("Chat Window Element:", chatWindow);             // <-- ADD
+    
+        // --- Toggle Chat Window ---
+        if (chatToggleButton && chatWindow) {
+            console.log("Attaching click listener to toggle button."); // <-- ADD
+            chatToggleButton.addEventListener('click', () => {
+                console.log("Chat toggle button CLICKED!"); // <-- ADD
+                try { // Add try...catch for safety
+                    chatWindow.classList.toggle('hidden');
+                    console.log("Chat window 'hidden' class toggled. Current classes:", chatWindow.classList); // <-- ADD
+                    chatToggleButton.style.display = chatWindow.classList.contains('hidden') ? 'flex' : 'none';
+                    console.log("Toggle button display set to:", chatToggleButton.style.display); // <-- ADD
+    
+                    if (!chatWindow.classList.contains('hidden') && chatInput) { // Check chatInput too
+                        chatInput.focus();
+                    }
+                } catch (error) {
+                    console.error("Error inside toggle button click handler:", error); // <-- ADD
+                }
+            });
+        } else {
+             // This error message helps diagnose if elements weren't found initially
+             console.error("Chat toggle button or chat window element WAS NOT FOUND!");
+        }
+    
+        // ... rest of your script ...
+    
+    });
     // --- Toggle Chat Window ---
+    
     chatToggleButton.addEventListener('click', () => {
         chatWindow.classList.toggle('hidden');
         chatToggleButton.style.display = chatWindow.classList.contains('hidden') ? 'flex' : 'none'; // Hide toggle button when chat is open
